@@ -1,5 +1,23 @@
 import React from "react";
 
+import { useFetchData, STATUS } from "hooks/useFetchData";
+import { discover } from "api/api";
+import Lists from "containers/Lists";
+
+const { idle, pending, resolved, rejected } = STATUS;
+
 export default function MainPage() {
-  return <div></div>;
+  const [status, error, json] = useFetchData(discover());
+
+  switch (status) {
+    default:
+    case idle:
+      return null;
+    case pending:
+      return <div>waiting...</div>;
+    case resolved:
+      return <Lists data={json} />;
+    case rejected:
+      return <div>{error.message}</div>;
+  }
 }

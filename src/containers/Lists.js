@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Lists({ data }) {
   return (
@@ -7,7 +8,7 @@ export default function Lists({ data }) {
         {data &&
           data.map((issue) => (
             <li key={issue.id}>
-              <a href={`/issue.id`}>
+              <Link to={`/${issue.number}`}>
                 <h2>
                   #{issue.number} {issue.title}
                 </h2>
@@ -15,9 +16,7 @@ export default function Lists({ data }) {
                   작성자: {issue.user.login}, 작성일: {issue.created_at}
                 </div>
                 <span>코멘트: {issue.comments}</span>
-                {/* 작성자, 작성일 */}
-                {/* 코멘트 */}
-              </a>
+              </Link>
             </li>
           ))}
       </ul>

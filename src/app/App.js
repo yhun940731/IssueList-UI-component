@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/" exact component={MainPage} />
-          <Route path="/:id" component={DetailPage} />
+          <Route path="/:issueNumber" component={DetailPage} />
         </Switch>
       </div>
     </BrowserRouter>

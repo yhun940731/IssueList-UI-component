@@ -4,8 +4,6 @@ import Header from "containers/Header";
 import MainPage from "pages/MainPage";
 import DetailPage from "pages/DetailPage";
 
-//TODO: issue render page 생성
-
 function App() {
   return (
     <BrowserRouter>

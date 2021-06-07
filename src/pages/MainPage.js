@@ -7,7 +7,7 @@ import Lists from "containers/Lists";
 const { idle, pending, resolved, rejected } = STATUS;
 
 export default function MainPage() {
-  const [status, error, json] = useFetchData(discover());
+  const [status, error, json] = useFetchData(discover(1));
 
   switch (status) {
     default:

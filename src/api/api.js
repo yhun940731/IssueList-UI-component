@@ -1,5 +1,6 @@
-const discover = () => {
-  return `https://api.github.com/repos/angular/angular-cli/issues`;
+const discover = (pageNumber) => {
+  return `https://api.github.com/repos/angular/angular-cli/issues?page=${pageNumber}
+  `;
 };
 
 const getDetail = (issueNumber) => {

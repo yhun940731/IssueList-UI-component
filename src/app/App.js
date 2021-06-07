@@ -1,6 +1,6 @@
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
-import Header from "containers/Header";
+import Header from "components/Header";
 import MainPage from "pages/MainPage";
 import DetailPage from "pages/DetailPage";
 

@@ -1,4 +1,4 @@
-import { error, issue, issueList } from "constant/type";
+import { error } from "constant/type";
 import { useState, useEffect } from "react";
 
 export const STATUS = {
@@ -10,10 +10,10 @@ export const STATUS = {
 
 const { idle, pending, resolved, rejected } = STATUS;
 
-export function useFetchData<DataType>(api: string) {
+export function useFetchData<T>(api: string) {
   const [status, setStatus] = useState<string>(idle);
   const [error, setError] = useState<error | null>(null);
-  const [data, setData] = useState<DataType | null>(null);
+  const [data, setData] = useState<T | null>(null);
 
   useEffect(() => {
     setStatus(idle);
@@ -37,5 +37,5 @@ export function useFetchData<DataType>(api: string) {
     fetchData(api);
   }, [api]);
 
-  return [status, error, data] as [string, error | null, DataType | null];
+  return [status, error, data] as [string, error | null, T | null];
 }

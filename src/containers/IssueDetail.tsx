@@ -1,6 +1,11 @@
 import { useEffect } from "react";
+import { issue } from "constant/type";
 
-export default function IssueDetail({ issue }) {
+type IssueDetailProps = {
+  issue: issue | null;
+};
+
+export default function IssueDetail({ issue }: IssueDetailProps) {
   useEffect(() => {}, [issue]);
   //TODO: issue.body string -> md
   return !issue ? (

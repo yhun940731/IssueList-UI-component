@@ -3,11 +3,12 @@ import React from "react";
 import { useFetchData, STATUS } from "hooks/useFetchData";
 import { discover } from "api/api";
 import Lists from "containers/Lists";
+import { issueList } from "constant/type";
 
 const { idle, pending, resolved, rejected } = STATUS;
 
 export default function MainPage() {
-  const [status, error, json] = useFetchData(discover(1));
+  const [status, error, issueList] = useFetchData<issueList>(discover(1));
 
   switch (status) {
     default:
@@ -16,8 +17,8 @@ export default function MainPage() {
     case pending:
       return <div>waiting...</div>;
     case resolved:
-      return <Lists data={json} />;
+      return <Lists issueList={issueList} />;
     case rejected:
-      return <div>{error.message}</div>;
+      return <div>{error?.message}</div>;
   }
 }

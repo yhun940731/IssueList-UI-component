@@ -1,12 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { issueList } from "constant/type";
 
-export default function Lists({ data }) {
+type ListsProps = {
+  issueList: issueList | null;
+};
+
+export default function Lists({ issueList }: ListsProps) {
   return (
     <div className="issue-list-page">
       <ul>
-        {data &&
-          data.map((issue) => (
+        {issueList &&
+          issueList.map((issue) => (
             <li key={issue.id}>
               <Link to={`/${issue.number}`}>
                 <h2>

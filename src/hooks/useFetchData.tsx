@@ -1,3 +1,4 @@
+import { error, issue, issueList } from "constant/type";
 import { useState, useEffect } from "react";
 
 export const STATUS = {
@@ -9,16 +10,16 @@ export const STATUS = {
 
 const { idle, pending, resolved, rejected } = STATUS;
 
-export function useFetchData(api) {
-  const [status, setStatus] = useState(idle);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+export function useFetchData<DataType>(api: string) {
+  const [status, setStatus] = useState<string>(idle);
+  const [error, setError] = useState<error | null>(null);
+  const [data, setData] = useState<DataType | null>(null);
 
   useEffect(() => {
     setStatus(idle);
     setError(null);
 
-    const fetchData = async () => {
+    const fetchData = async (api: string) => {
       setStatus(pending);
       try {
         const response = await fetch(api);
@@ -36,5 +37,5 @@ export function useFetchData(api) {
     fetchData(api);
   }, [api]);
 
-  return [status, error, data];
+  return [status, error, data] as [string, error | null, DataType | null];
 }

@@ -1,0 +1,20 @@
+type issue = {
+  id: number;
+  number: number;
+  title: string;
+  user: {
+    avatar_url: string;
+    login: string;
+  }
+  created_at: string;
+  comments: number;
+  body: string;
+}
+
+type issueList = issue[];
+
+type error = {
+  message: string;
+}
+
+export type { issue, issueList, error }

@@ -1,3 +1,12 @@
+type repo = {
+  name: string;
+  full_name: string;
+  owner: {
+    login: string;
+  };
+  issue_url: string;
+}
+
 type issue = {
   id: number;
   number: number;
@@ -17,4 +26,4 @@ type error = {
   message: string;
 }
 
-export type { issue, issueList, error }
+export type { repo, issue, issueList, error }
